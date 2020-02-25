@@ -1,0 +1,1779 @@
+{
+  "version": "1.0.0",
+  "slaves": [
+    {
+      "id": 1,
+      "type": "vfd",
+      "device_manufacturer": "Control Techniques",
+      "device_model": "M200/300/400 Open Loop",
+      "supported_baudrates": [
+        9600,
+        19200,
+        38400,
+        57600
+      ],
+      "functions": [
+        {
+          "name": "remote_ctrl",
+          "label": "Remote Control",
+          "reg_grp": 16,
+          "reg": 642,
+          "threshold": 3000,
+          "options": [
+            {
+              "name": "runfwd",
+              "type": "fixed",
+              "label": "Run Fwd",
+              "val": 131
+            },
+            {
+              "name": "runrev",
+              "type": "fixed",
+              "label": "Run Rev",
+              "val": 137
+            },
+            {
+              "name": "stop",
+              "type": "fixed",
+              "label": "Stop",
+              "override": true,
+              "val": 128
+            },
+            {
+              "name": "jogfwd",
+              "type": "fixed",
+              "label": "Jog Fwd",
+              "val": 133
+            },
+            {
+              "name": "jogrev",
+              "type": "fixed",
+              "label": "Jog Rev",
+              "val": 641
+            }
+          ]
+        },
+        {
+          "name": "speed_ctrl",
+          "label": "Remote Speed Control",
+          "reg_grp": 32,
+          "reg": 128,
+          "threshold": 1000,
+          "options": [
+            {
+              "name": "minspd",
+              "type": "fixed",
+              "label": "Min Speed",
+              "val": 100
+            },
+            {
+              "name": "maxspd",
+              "type": "fixed",
+              "label": "Max Speed",
+              "val": 6000
+            },
+            {
+              "name": "custom",
+              "type": "input",
+              "label": "Custom Speed",
+              "min": 100,
+              "max": 6000
+            }
+          ]
+        }
+      ],
+      "regs16": [
+        {
+          "address": 419,
+          "name": "Motor Protection Accumulator [4.019]",
+          "info": "Shows the level of the motor protection accumulator",
+          "short_name": "MotorProteccAcc",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1,
+          "onlyifchg": true
+        },
+        {
+          "address": 420,
+          "name": "Percentage Load [4.020]",
+          "info": "Shows the level of torque producing current as a percentage of rated torque producing current for the motor",
+          "short_name": "LoadPercent",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 426,
+          "name": "Percentage Torque [4.026]",
+          "info": "Displays the torque producing current as a percentage or motor rated current",
+          "short_name": "TorquePercent",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 502,
+          "name": "Output Voltage [5.002]",
+          "info": "Displays the r.m.s. line to line voltage at the a.c. terminals of the drive",
+          "short_name": "OutputVolts",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 505,
+          "name": "D.c. Link Voltage [5.005]",
+          "info": "Displays the voltage across the d.c. link of the drive",
+          "short_name": "DcbusVolts",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 625,
+          "name": "Energy Meter: MWh [6.025]",
+          "info": "Displays the energy accumulated in MWh",
+          "short_name": "EnergyMeter",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 626,
+          "name": "Energy Meter: kWh [6.026]",
+          "info": "Displays the energy accumulated in kWh",
+          "short_name": "EnergyMeter",
+          "enabled": true,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 642,
+          "name": "Control Word: [6.042]",
+          "info": "Controls the sequencer state machine inputs if the control word is enabled",
+          "short_name": "ctrlwrd",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 701,
+          "name": "Analog Input 1 [7.001]",
+          "info": "Displays the value of analog input 1",
+          "short_name": "Analog1",
+          "enabled": true,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 702,
+          "name": "Analog Input 2 [7.002]",
+          "info": "Displays the value of analog input 2",
+          "short_name": "Analog2",
+          "enabled": false,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 704,
+          "name": "Stack Temperature [7.004]",
+          "info": "Displays the temperature currently being measured on the heat sink",
+          "short_name": "StackTemp",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 705,
+          "name": "Auxiliary Temperature [7.005]",
+          "info": "Displays the temperature currently being measured on the power system",
+          "short_name": "AuxTemp",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 734,
+          "name": "Inverter Temperature [7.034]",
+          "info": "Displays the estimated junction temperature of the hottest power device within the drive inverter",
+          "short_name": "InverterTemp",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 820,
+          "name": "Digital I/O Read Word [8.020]",
+          "info": "Displays the states for the digital I/O",
+          "short_name": "IOWord",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1020,
+          "name": "Trip 0 [10.020]",
+          "info": "Shows the current or last trip to have occurred",
+          "short_name": "LastTrip",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1040,
+          "name": "Status Word [10.040]",
+          "info": "Shows the status word for the drive",
+          "short_name": "StatusWord",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1131,
+          "name": "User Drive Mode [11.031]",
+          "info": "Defines the mode of the drive",
+          "short_name": "DriveMode",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1148,
+          "name": "Onboard User Program: Status [11.048]",
+          "info": "Displays the status of the onboard user program",
+          "short_name": "UserprogStatus",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1811,
+          "name": "Application Menu Read-write Integer 11 [18.011]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1811",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1812,
+          "name": "Application Menu Read-write Integer 12 [18.012]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1812",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1813,
+          "name": "Application Menu Read-write Integer 13 [18.013]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1813",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1814,
+          "name": "Application Menu Read-write Integer 14 [18.014]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1814",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        }
+      ],
+      "regs32": [
+        {
+          "address": 128,
+          "name": "Preset Reference 8 [1.028]",
+          "info": "Defines the value for preset reference 8",
+          "short_name": "PresetRef8",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 201,
+          "name": "Post Ramp Reference [2.001]",
+          "info": "Displays the output of the ramp system",
+          "short_name": "PostRampRef",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 401,
+          "name": "Current Magnitude [4.001]",
+          "info": "Shows the instantaneous drive output current",
+          "short_name": "CurrentMag",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 501,
+          "name": "Output Frequency [5.001]",
+          "info": "Displays the output frequency of the drive",
+          "short_name": "OutputFreq",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 503,
+          "name": "Output Power [5.003]",
+          "info": "Displays the power flowing via the a.c. terminals of the drive",
+          "short_name": "OutputPower",
+          "enabled": false,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 504,
+          "name": "Motor RPM [5.004]",
+          "info": "Displays the Final Demand Reference in units of RPM",
+          "short_name": "MotorRpm",
+          "enabled": true,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2021,
+          "name": "Application Menu Read-write Long Integer 21 [20.021]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.21",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2022,
+          "name": "Application Menu Read-write Long Integer 22 [20.022]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.22",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2023,
+          "name": "Application Menu Read-write Long Integer 23 [20.023]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.23",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2024,
+          "name": "Application Menu Read-write Long Integer 24 [20.024]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.24",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "vfd",
+      "device_manufacturer": "Control Techniques",
+      "device_model": "M200/300/400 RFCA",
+      "supported_baudrates": [
+        9600,
+        19200,
+        38400,
+        57600
+      ],
+      "regs16": [
+        {
+          "address": 419,
+          "name": "Motor Protection Accumulator [4.019]",
+          "info": "Shows the level of the motor protection accumulator",
+          "short_name": "MotorProteccAcc",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 420,
+          "name": "Percentage Load [4.020]",
+          "info": "Shows the level of torque producing current as a percentage of rated torque producing current for the motor",
+          "short_name": "LoadPercent",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 502,
+          "name": "Output Voltage [5.002]",
+          "info": "Displays the r.m.s. line to line voltage at the a.c. terminals of the drive",
+          "short_name": "OutputVolts",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 505,
+          "name": "D.c. Link Voltage [5.005]",
+          "info": "Displays the voltage across the d.c. link of the drive",
+          "short_name": "DcbusVolts",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 625,
+          "name": "Energy Meter: MWh [6.025]",
+          "info": "Displays the energy accumulated in MWh",
+          "short_name": "EnergyMeter",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 626,
+          "name": "Energy Meter: kWh [6.026]",
+          "info": "Displays the energy accumulated in kWh",
+          "short_name": "EnergyMeter",
+          "enabled": true,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 701,
+          "name": "Analog Input 1 [7.001]",
+          "info": "Displays the value of analog input 1",
+          "short_name": "Analog1",
+          "enabled": true,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 642,
+          "name": "Control Word: [6.042]",
+          "info": "Controls the sequencer state machine inputs if the control word is enabled",
+          "short_name": "ctrlwrd",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 702,
+          "name": "Analog Input 2 [7.002]",
+          "info": "Displays the value of analog input 2",
+          "short_name": "Analog2",
+          "enabled": false,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 704,
+          "name": "Stack Temperature [7.004]",
+          "info": "Displays the temperature currently being measured on the heat sink",
+          "short_name": "StackTemp",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 705,
+          "name": "Auxiliary Temperature [7.005]",
+          "info": "Displays the temperature currently being measured on the power system",
+          "short_name": "AuxTemp",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 734,
+          "name": "Inverter Temperature [7.034]",
+          "info": "Displays the estimated junction temperature of the hottest power device within the drive inverter",
+          "short_name": "InverterTemp",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 820,
+          "name": "Digital I/O Read Word [8.020]",
+          "info": "Displays the states for the digital I/O",
+          "short_name": "IOWord",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1020,
+          "name": "Trip 0 [10.020]",
+          "info": "Shows the current or last trip to have occurred",
+          "short_name": "LastTrip",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1040,
+          "name": "Status Word [10.040]",
+          "info": "Shows the status word for the drive",
+          "short_name": "StatusWord",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1131,
+          "name": "User Drive Mode [11.031]",
+          "info": "Defines the mode of the drive",
+          "short_name": "DriveMode",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1148,
+          "name": "Onboard User Program: Status [11.048]",
+          "info": "Displays the status of the onboard user program",
+          "short_name": "UserprogStatus",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1811,
+          "name": "Application Menu Read-write Integer 11 [18.011]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1811",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1812,
+          "name": "Application Menu Read-write Integer 12 [18.012]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1812",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1813,
+          "name": "Application Menu Read-write Integer 13 [18.013]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1813",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1814,
+          "name": "Application Menu Read-write Integer 14 [18.014]",
+          "info": "General read-write integer application parameter",
+          "short_name": "AppReg1814",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        }
+      ],
+      "regs32": [
+        {
+          "address": 128,
+          "name": "Preset Reference 8 [1.028]",
+          "info": "Defines the value for preset reference 8",
+          "short_name": "PresetRef8",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 201,
+          "name": "Post Ramp Reference [2.001]",
+          "info": "Displays the output of the ramp system",
+          "short_name": "PostRampRef",
+          "enabled": false,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 302,
+          "name": "Estimated frecuency [3.002]",
+          "info": "Displays the frequency feedback ",
+          "short_name": "EstFreq",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 401,
+          "name": "Current Magnitude [4.001]",
+          "info": "Shows the instantaneous drive output current",
+          "short_name": "CurrentMag",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 501,
+          "name": "Output Frequency [5.001]",
+          "info": "Displays the output frequency of the drive",
+          "short_name": "OutputFreq",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 503,
+          "name": "Output Power [5.003]",
+          "info": "Displays the power flowing via the a.c. terminals of the drive",
+          "short_name": "OutputPower",
+          "enabled": false,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 504,
+          "name": "Motor RPM [5.004]",
+          "info": "Displays the Final Demand Reference in units of RPM",
+          "short_name": "MotorRpm",
+          "enabled": true,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2021,
+          "name": "Application Menu Read-write Long Integer 21 [20.021]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.21",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2022,
+          "name": "Application Menu Read-write Long Integer 22 [20.022]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.22",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2023,
+          "name": "Application Menu Read-write Long Integer 23 [20.023]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.23",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        },
+        {
+          "address": 2024,
+          "name": "Application Menu Read-write Long Integer 24 [20.024]",
+          "info": "General read-write Long integer application parameter",
+          "short_name": "Reg20.24",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": 16383
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "vfd",
+      "device_manufacturer": "Danfoss",
+      "device_model": "VLT® HVAC Drive FC 102",
+      "supported_baudrates": [
+        9600,
+        19200,
+        38400,
+        57600
+      ],
+      "functions": [
+        {
+          "name": "remote_ctrl",
+          "label": "Remote Control",
+          "reg_grp": 16,
+          "reg": 50000,
+          "options": [
+            {
+              "name": "runfwd",
+              "type": "fixed",
+              "label": "Run Fwd",
+              "val": 1148
+            },
+            {
+              "name": "runrev",
+              "type": "fixed",
+              "label": "Run Rev",
+              "val": 1084
+            },
+            {
+              "name": "stop",
+              "type": "fixed",
+              "label": "Stop",
+              "val": 1084
+            }
+          ]
+        },
+        {
+          "name": "speed_ctrl",
+          "label": "Remote Speed Control",
+          "reg_grp": 16,
+          "reg": 50010,
+          "options": [
+            {
+              "name": "minspd",
+              "type": "fixed",
+              "label": "Min Speed",
+              "val": 4096
+            },
+            {
+              "name": "maxspeed",
+              "type": "fixed",
+              "label": "Max Speed",
+              "val": 16383
+            },
+            {
+              "name": "custom",
+              "type": "input",
+              "label": "Custom Speed",
+              "min": 1000,
+              "max": 16384
+            },
+            {
+              "name": "halfspeed",
+              "type": "fixed",
+              "label": "Half Speed",
+              "val": 8192
+            }
+          ]
+        }
+      ],
+      "regs16": [
+        {
+          "address": 16000,
+          "name": "Control Word",
+          "info": "Control Word",
+          "short_name": "ctrl_wrd",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16020,
+          "name": "Refence [%]",
+          "info": "Speed reference given in %",
+          "short_name": "spd_ref%",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16030,
+          "name": "Status word",
+          "info": "VFD Status Word",
+          "short_name": "status_wrd",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16050,
+          "name": "Main Actual Value [%]",
+          "info": "Main Actual Value [%]",
+          "short_name": "main_val",
+          "enabled": true,
+          "size": 16,
+          "dp": 2,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16120,
+          "name": "VFD out voltage",
+          "info": "Voltage applied to the motor",
+          "short_name": "volts_out",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16130,
+          "name": "VFD out HZ",
+          "info": "Frecuency in HZ applied to the motor",
+          "short_name": "hz_out",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16180,
+          "name": "Motor Thermal",
+          "info": "Motor Thermal",
+          "short_name": "thermal_mtr",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16220,
+          "name": "Torque % ",
+          "info": "Output Motor torque in %",
+          "short_name": "torque_%",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16300,
+          "name": "DC Bus volts",
+          "info": "DC Bus volts",
+          "short_name": "dcbus_volts",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16340,
+          "name": "Heatsink Temperature.",
+          "info": "Heatsink Temperature.",
+          "short_name": "hsink_temp.",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16350,
+          "name": "Inverter thermal",
+          "info": "Inverter thermal",
+          "short_name": "vfd_thermal",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16390,
+          "name": "Control Card Temp.",
+          "info": "Control Card Temp.",
+          "short_name": "ctrlbrd_temp",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 16600,
+          "name": "Digital inputs word",
+          "info": "Digital inputs word",
+          "short_name": "digin_wrd",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 15300,
+          "name": "Alarm Log: Error Code",
+          "info": "Alarm Log: Error Code",
+          "short_name": "alrm_errcod",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 15310,
+          "name": "Alarm Log: Value",
+          "info": "Alarm Log: Value",
+          "short_name": "alrm_value",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 50000,
+          "name": "VFD control word",
+          "info": "VFD control word",
+          "short_name": "vfd_ctrlwrd",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 50010,
+          "name": "VFD Speed reference ",
+          "info": "VFDSpeed reference",
+          "short_name": "vfd_spdref",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        }
+      ],
+      "regs32": [
+        {
+          "address": 16010,
+          "name": "Reference [Unit]",
+          "info": "Reference [Unit]",
+          "short_name": "ref_units",
+          "enabled": false,
+          "size": 32,
+          "dp": 3,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 16100,
+          "name": "Input Power [kW]",
+          "info": "Input Power [kW]",
+          "short_name": "inppwr_kw",
+          "enabled": false,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 16160,
+          "name": "Torque NM",
+          "info": "Torque NM",
+          "short_name": "torq_nm",
+          "enabled": false,
+          "size": 32,
+          "dp": 1,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 16140,
+          "name": "Motor Current",
+          "info": "Motor Current",
+          "short_name": "motor_curr",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 16170,
+          "name": "Motor speed rpm",
+          "info": "Motor speed rpm",
+          "short_name": "motor_rpm",
+          "enabled": true,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 16620,
+          "name": "Analog input 53",
+          "info": "Analog input 53",
+          "short_name": "anal_53",
+          "enabled": false,
+          "size": 32,
+          "dp": 3,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 15000,
+          "name": "Operating Hours",
+          "info": "Operating Hours",
+          "short_name": "oper_hrs",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 15010,
+          "name": "Running Hours",
+          "info": "Running Hours",
+          "short_name": "run_hrs",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 15020,
+          "name": "kWh hours",
+          "info": "kWh hours counter",
+          "short_name": "kwh_count",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        },
+        {
+          "address": 15030,
+          "name": "Power up's counter",
+          "info": "Power up's counter",
+          "short_name": "pwron_count",
+          "enabled": false,
+          "size": 32,
+          "dp": 0,
+          "table_type": 0,
+          "IEEE754": false,
+          "offset": -1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "vfd",
+      "device_manufacturer": "ABB",
+      "device_model": "ACS310",
+      "supported_baudrates": [
+        9600,
+        19200,
+        38400,
+        57600
+      ],
+      "functions": [
+        {
+          "name": "remote_ctrl",
+          "label": "Remote Control",
+          "reg_grp": 16,
+          "reg": 1,
+          "options": [
+            {
+              "name": "runfwd",
+              "type": "fixed",
+              "label": "Run Fwd",
+              "val": 3199
+            },
+            {
+              "name": "stop",
+              "type": "fixed",
+              "label": "Stop",
+              "val": 3198
+            }
+          ]
+        },
+        {
+          "name": "speed_ctrl",
+          "label": "Remote Speed Control",
+          "reg_grp": 16,
+          "reg": 3,
+          "options": [
+            {
+              "name": "minspd",
+              "type": "fixed",
+              "label": "Min Speed",
+              "val": 0
+            },
+            {
+              "name": "spd1",
+              "type": "fixed",
+              "label": "Speed 1",
+              "val": 4000
+            },
+            {
+              "name": "spd2",
+              "type": "fixed",
+              "label": "Speed 2",
+              "val": 7000
+            },
+            {
+              "name": "maxspd",
+              "type": "fixed",
+              "label": "Max Speed",
+              "val": 10000
+            },
+            {
+              "name": "custom",
+              "type": "input",
+              "label": "Custom Speed",
+              "min": 0,
+              "max": 10000
+            }
+          ]
+        }
+      ],
+      "regs16": [
+        {
+          "address": 101,
+          "name": "Speed & dir",
+          "info": "Show the motor speed",
+          "short_name": "SpeedDir",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 102,
+          "name": "Speed",
+          "info": "Speed",
+          "short_name": "speed",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 103,
+          "name": "Output Frecuency",
+          "info": "VDF output frecuency",
+          "short_name": "vfdoutfrec",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 104,
+          "name": "Motor Current",
+          "info": "Measured motor current",
+          "short_name": "motorCurrent",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 105,
+          "name": "Torque Percent",
+          "info": "Estimated torque %",
+          "short_name": "TorquePercen",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 106,
+          "name": "Power Outuput in kw",
+          "info": "Estimated power output",
+          "short_name": "PowerOut",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 107,
+          "name": "DC bus voltage",
+          "info": "Voltage at the DC bus",
+          "short_name": "EnergyMeter",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 109,
+          "name": "Out Volts",
+          "info": "Vfd output volts to motor",
+          "short_name": "outVolts",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 110,
+          "name": "Drive Temperature [110]",
+          "info": "Display drive temp",
+          "short_name": "DrvTemp",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 111,
+          "name": "External ref 1 value",
+          "info": "Display  the value of the external ref 1 Hz",
+          "short_name": "Extref1",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 112,
+          "name": "External ref 2 value",
+          "info": "Display  the value of the external ref 2 %",
+          "short_name": "Extref2",
+          "enabled": true,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 114,
+          "name": "Runtime",
+          "info": "running time",
+          "short_name": "runningtime",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 115,
+          "name": "kwcount",
+          "info": "accummulated kw",
+          "short_name": "acckw",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 120,
+          "name": "Analog1 I Val",
+          "info": "Analog input value %",
+          "short_name": "Analog1",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 121,
+          "name": "Analog2 I Val",
+          "info": "Analog input value %",
+          "short_name": "Analog2",
+          "enabled": false,
+          "size": 16,
+          "dp": 1,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 4,
+          "name": "Status Word",
+          "info": "Drive status word",
+          "short_name": "staword",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 5,
+          "name": "User register 1",
+          "info": "User register 1",
+          "short_name": "userreg1",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 6,
+          "name": "User register 2",
+          "info": "User register 2",
+          "short_name": "userreg2",
+          "enabled": true,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 2,
+          "name": "Reference 1",
+          "info": "Input ref 1",
+          "short_name": "ref1",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 3,
+          "name": "Reference 2",
+          "info": "Input ref 2",
+          "short_name": "ref2",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        },
+        {
+          "address": 1,
+          "name": "Control Word: [REG1]",
+          "info": "Controls the sequencer state machine inputs if the control word is enabled",
+          "short_name": "ctrlwrd",
+          "enabled": false,
+          "size": 16,
+          "dp": 0,
+          "table_type": 0,
+          "offset": -1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "generic",
+      "device_manufacturer": "Eastron",
+      "device_model": "SDM230-Modbus",
+      "supported_baudrates": [
+        1200,
+        2400,
+        4800,
+        9600
+      ],
+      "regs32": [
+        {
+          "address": 85,
+          "name": "Total power demand",
+          "info": "Total system power demand [W]",
+          "short_name": "TotalPdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 87,
+          "name": "Maximum total power demand",
+          "info": "Maximum total system power demand [W]",
+          "short_name": "MaxTotalPdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 89,
+          "name": "Current positive power demand",
+          "info": "Current system positive power demand [W]",
+          "short_name": "SystPpdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 91,
+          "name": "Maximum system power demand",
+          "info": "Maximum system positive power demand [W]",
+          "short_name": "MaxSysPpdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 93,
+          "name": "Current reverse power demand",
+          "info": "Current system reverse power demand [W]",
+          "short_name": "SysRevPdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 2,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 95,
+          "name": "Maximum reverse power demand",
+          "info": "Maximum system reverse power demand [W]",
+          "short_name": "MaxRevPdm",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 259,
+          "name": "Current demand",
+          "info": "Current demand [A]",
+          "short_name": "CurrentDemand",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 1,
+          "name": "Line to neutral volts",
+          "info": "Line to neutral volts [V]",
+          "short_name": "LineVolts",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 7,
+          "name": "Current",
+          "info": "Current [A]",
+          "short_name": "Current",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 13,
+          "name": "Active Power",
+          "info": "Active Power [W]",
+          "short_name": "ActPower",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 19,
+          "name": "Apparent Power",
+          "info": "Apparent Power [VoltAmps]",
+          "short_name": "AparentPwr",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 25,
+          "name": "Reactive Power",
+          "info": "Reactive Power [VAr]",
+          "short_name": "ReactPwr",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 31,
+          "name": "Power Factor",
+          "info": "Power Factor",
+          "short_name": "PowerFact",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 37,
+          "name": "Phase Angle",
+          "info": "Phase Angle [Degree]",
+          "short_name": "PhaseAngl",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 71,
+          "name": "Frequency",
+          "info": "Frequency [HZ]",
+          "short_name": "Freq",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 73,
+          "name": "Import Active Energy",
+          "info": "Import Active Energy [kWh]",
+          "short_name": "ImpActEner",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 75,
+          "name": "Export Active Energy",
+          "info": "Export Active Energy [kWh]",
+          "short_name": "ExpActEner",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 77,
+          "name": "Import Reactive Energy",
+          "info": "Import Reactive Energy [kVArh]",
+          "short_name": "ImpReactEner",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 265,
+          "name": "Maximum current Demand",
+          "info": "Maximum current Demand [A]",
+          "short_name": "MaxCurrDemand",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 79,
+          "name": "Export Reactive Energy",
+          "info": "Export Reactive Energy [kVArh]",
+          "short_name": "ImpActEner",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 343,
+          "name": "Total Active Energy",
+          "info": "Total Active Energy [kWh]",
+          "short_name": "TotalActEnerg",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        },
+        {
+          "address": 345,
+          "name": "Total Reactive Energy",
+          "info": "Total Reactive Energy [kVArh]",
+          "short_name": "TotalReactEnerg",
+          "enabled": true,
+          "size": 32,
+          "dp": 3,
+          "table_type": 1,
+          "IEEE754": true
+        }
+      ]
+    }
+  ]
+}
