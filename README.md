@@ -22,7 +22,7 @@ List of slaves currently included in the official manifest file:
 
 The manifest file is a **JSON** file with the `.mbox` extension. It contains an array of modbus slaves supported by the ModbusBox device, and a list of registers and functions of each slave. 
 
-#### Slave
+### Slave
 
 Each slave has the following properties:
 
